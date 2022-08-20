@@ -2,13 +2,14 @@
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 
 namespace WCL2MRTNote
 {
     internal class Handler
     {
-        public string Request_Json(string url)
+        public static string HttpRequest(string url)
         {
             string result = string.Empty;
             try
@@ -27,7 +28,7 @@ namespace WCL2MRTNote
             }
             catch (Exception e)
             {
-                Console.WriteLine("[예외] : " + e.Message);
+
             }
             return result;
         }
@@ -42,54 +43,21 @@ namespace WCL2MRTNote
         {
             return TimeSpan.FromMilliseconds(milliseconds).ToString(@"mm\:ss");
         }
+        public static string SpellID2Name(string SpellID)
+        {
+            try
+            {
+                string Url = "https://ko.wowhead.com/spell=" + SpellID;
+                string title = Regex.Match(HttpRequest(Url), @"<title>(.*?)</title>").Groups[1].Value;
+                title = title.Substring(0, title.IndexOf("-"));
+                return title;
+            }
+            catch (Exception)
+            {
+                
+            }
+            return "";
+        }
     }
-
-    public class Boss
-    {
-        public string name { get; set; }
-        public List<Cast> casts { get; set; }
-    }
-
-    public class Cast
-    {
-        public int ts { get; set; }
-        public int id { get; set; }
-        public int d { get; set; }
-    }
-
-    public class Fight
-    {
-        public string report_id { get; set; }
-        public int fight_id { get; set; }
-        public double percent { get; set; }
-        public bool kill { get; set; }
-        public int duration { get; set; }
-        public double time { get; set; }
-        public Boss boss { get; set; }
-        public List<Player> players { get; set; }
-    }
-
-    public class Player
-    {
-        public string name { get; set; }
-        public int source_id { get; set; }
-        public string @class { get; set; }
-        public string spec { get; set; }
-        public string role { get; set; }
-        public int total { get; set; }
-        public string covenant { get; set; }
-        public List<Cast> casts { get; set; }
-        public List<object> deaths { get; set; }
-        public List<object> resurrects { get; set; }
-    }
-
-    public class Root
-    {
-        public List<Fight> fights { get; set; }
-        public int updated { get; set; }
-        public string difficulty { get; set; }
-        public string metric { get; set; }
-    }
-
-
 }
+

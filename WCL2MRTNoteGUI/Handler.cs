@@ -1,14 +1,16 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 
 namespace WCL2MRTNote
 {
     internal class Handler
     {
-        public string Request_Json(string url)
+        public static string HttpRequest(string url)
         {
             string result = string.Empty;
             try
@@ -27,7 +29,7 @@ namespace WCL2MRTNote
             }
             catch (Exception e)
             {
-                Console.WriteLine("[예외] : " + e.Message);
+                MessageBox.Show("[예외] : " + e.Message);
             }
             return result;
         }
@@ -41,6 +43,21 @@ namespace WCL2MRTNote
         public static string ConvertMilliseconds(int milliseconds)
         {
             return TimeSpan.FromMilliseconds(milliseconds).ToString(@"mm\:ss");
+        }
+        public static string SpellID2Name(int SpellID)
+        {
+            try
+            {
+                string Url = "https://ko.wowhead.com/spell=" + SpellID.ToString();
+                string title = Regex.Match(HttpRequest(Url), @"<title>(.*?)</title>").Groups[1].Value;
+                title = title.Substring(0, title.IndexOf("-"));
+                return title;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("오류 발생 : " + ex.Message);
+            }
+            return "";
         }
     }
 

@@ -12,7 +12,7 @@ namespace WCL2MRTNoteGUI
         public Form1()
         {
             InitializeComponent();
-            const string Ver = "1.1.0";
+            const string Ver = "1.2.0";
             this.Text += "-v" + Ver;
         }
 
@@ -55,8 +55,7 @@ namespace WCL2MRTNoteGUI
 
 
                 /*Json 가져오기*/
-                Handler JHandler = new Handler();
-                JsonStr = JHandler.Request_Json(Url);
+                JsonStr = Handler.HttpRequest(Url);
 
                 Root rootObj = JsonSerializer.Deserialize<Root>(JsonStr);//역직렬화 수행
 
@@ -78,6 +77,7 @@ namespace WCL2MRTNoteGUI
                 textBox1.Text += string.Format("킬 타임 : " + Handler.ConvertMilliseconds(rootObj.fights[Nth - 1].duration) + "\r\n");
 
                 List<Cast> Casts = rootObj.fights[Nth - 1].players[0].casts;
+                List<Cast> BCasts = rootObj.fights[Nth - 1].boss.casts;
 
                 int PI = 0, KE = 0, KS = 0, FG = 0, BF = 0, FM = 0;
                 int buff = 0;
@@ -126,17 +126,42 @@ namespace WCL2MRTNoteGUI
                 textBox2.Text += String.Format("=========================\r\n");
 
                 const int OneCycleMS = 13000;
+                const int BossCycleMS = 4000;
                 int timestamp;
 
                 if (Casts[0].id != 2825)
                 {
                     timestamp = Casts[0].ts + OneCycleMS;
-                    textBox1.Text += string.Format("{{time:{0}}}", Handler.ConvertMilliseconds(Casts[0].ts));
+                    textBox1.Text += string.Format("{{time:{0}}}-", Handler.ConvertMilliseconds(Casts[0].ts));
+                    if(checkBox1.Checked == true)
+                    {
+                        foreach (var C2 in BCasts)
+                        {
+                            if (Math.Abs(C2.ts - Casts[0].ts) < BossCycleMS)
+                            {
+                                textBox1.Text += string.Format("{0}{{spell:{1}}}-", Handler.SpellID2Name(C2.id), C2.id) + " ";
+                                break;
+                            }
+                        }
+
+                    }
+
                 }
                 else
                 {
                     timestamp = Casts[1].ts + OneCycleMS;
-                    textBox1.Text += string.Format("{{time:{0}}}", Handler.ConvertMilliseconds(Casts[1].ts));
+                    textBox1.Text += string.Format("{{time:{0}}}-", Handler.ConvertMilliseconds(Casts[1].ts));
+                    if (checkBox1.Checked == true)
+                    {
+                        foreach (var C2 in BCasts)
+                        {
+                            if (Math.Abs(C2.ts - Casts[1].ts) < BossCycleMS)
+                            {
+                                textBox1.Text += string.Format("{0}{{spell:{1}}}-", Handler.SpellID2Name(C2.id), C2.id) + " ";
+                                break;
+                            }
+                        }
+                    }
                 }
                 foreach (var C in Casts)
                 {
@@ -151,7 +176,18 @@ namespace WCL2MRTNoteGUI
                     else
                     {
                         textBox1.Text += "\r\n";
-                        textBox1.Text += string.Format("{{time:{0}}}", Handler.ConvertMilliseconds(C.ts));
+                        textBox1.Text += string.Format("{{time:{0}}}-", Handler.ConvertMilliseconds(C.ts));
+                        if (checkBox1.Checked == true)
+                        {
+                            foreach (var C2 in BCasts)
+                            {
+                                if (Math.Abs(C2.ts - C.ts) < BossCycleMS)
+                                {
+                                    textBox1.Text += string.Format("{0}{{spell:{1}}}-", Handler.SpellID2Name(C2.id), C2.id) + " ";
+                                    break;
+                                }
+                            }
+                        }
                         textBox1.Text += string.Format("{{spell:{0}}}", C.id) + " ";
                         timestamp = C.ts + OneCycleMS;
                     }
