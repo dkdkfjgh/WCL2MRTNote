@@ -12,7 +12,7 @@ namespace WCL2MRTNoteGUI
         public Form1()
         {
             InitializeComponent();
-            const string Ver = "1.2.0";
+            const string Ver = "1.2.1";
             this.Text += "-v" + Ver;
         }
 
@@ -77,7 +77,7 @@ namespace WCL2MRTNoteGUI
                 textBox1.Text += string.Format("≈≥ ≈∏¿” : " + Handler.ConvertMilliseconds(rootObj.fights[Nth - 1].duration) + "\r\n");
 
                 List<Cast> Casts = rootObj.fights[Nth - 1].players[0].casts;
-                List<Cast> BCasts = rootObj.fights[Nth - 1].boss.casts;
+                List<Cast> BCasts = rootObj.fights[0].boss.casts;
 
                 int PI = 0, KE = 0, KS = 0, FG = 0, BF = 0, FM = 0;
                 int buff = 0;
