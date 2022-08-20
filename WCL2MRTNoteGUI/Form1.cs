@@ -12,6 +12,8 @@ namespace WCL2MRTNoteGUI
         public Form1()
         {
             InitializeComponent();
+            const string Ver = "1.1.0";
+            this.Text += "-v" + Ver;
         }
 
 
@@ -65,7 +67,8 @@ namespace WCL2MRTNoteGUI
                 }
 
                 textBox2.Text += "Lorrgs 기반 WCL 로그 MRT 메모 추출기\r\n";
-                textBox2.Text += "출처 : " + Url + "\r\n";
+                textBox2.Text += "Lorrgs 출처 : " + Url + "\r\n";
+                textBox2.Text += "WCL 리포트 주소 : " + "https://warcraftlogs.com/reports/" + rootObj.fights[Nth - 1].report_id + "\r\n";
                 textBox2.Text += "유저 : " + rootObj.fights[Nth-1].players[0].name + "\r\n";
                 textBox2.Text += "로그ID : " + rootObj.fights[Nth - 1].report_id + "\r\n";
 
