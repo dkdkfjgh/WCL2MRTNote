@@ -1,23 +1,23 @@
 ## **WCL2MRTNote**
 
-»óÀ§±Ç À¯ÀúµéÀÇ Äð±â¸¦ Method Raid Tools Note ·Î Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥ÀÔ´Ï´Ù
+ìƒìœ„ê¶Œ ìœ ì €ë“¤ì˜ ì¿¨ê¸°ë¥¼ Method Raid Tools Note ë¡œ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ëž¨ìž…ë‹ˆë‹¤
 
- - °³¹ß È¯°æ : Visual Studio 2022 / .Net 6.0 °³¹ß ¾ð¾î : C#
- - ½ÇÇà ¿À·ù½Ã https://dotnet.microsoft.com/en-us/download/dotnet/6.0 ÀÌµ¿ ÈÄ .NET Runtime 6.0.X ¼³Ä¡
--  °³¹ß: ¾Õ²ÞÄ¡¹«¸­-¾ÆÁî»þ¶ó
+ - ê°œë°œ í™˜ê²½ : Visual Studio 2022 / .Net 6.0 ê°œë°œ ì–¸ì–´ : C#
+ - ì‹¤í–‰ ì˜¤ë¥˜ì‹œ https://dotnet.microsoft.com/en-us/download/dotnet/6.0 ì´ë™ í›„ .NET Runtime 6.0.X ì„¤ì¹˜
+-  ê°œë°œ: ë‹¬ë¹›í”„ë¦¬ì¦˜ì˜¤ë„ˆ-ì•„ì¦ˆìƒ¤ë¼
 
-## **»ç¿ë ¹æ¹ý**
-1. https://www.curseforge.com/wow/addons/method-raid-tools ÀÌµ¿ ÈÄ MRT ¾Öµå¿Â ¼³Ä¡
-2. https://github.com/dkdkfjgh/WCL2MRTNote/releases/tag/Release ÀÌµ¿ ÈÄ º» ÇÁ·Î±×·¥ ¼³Ä¡
-3. ÇÁ·Î±×·¥ ½ÇÇà ÈÄ Á÷¾÷/Àü¹®È­, º¸½º, Á¤·Ä¹æ½Ä(DPS,HPS), µî¼ö ÀÔ·Â ÈÄ ·Î±× ÃßÃâ ¹öÆ° ¼±ÅÃ
-4. https://lorrgs.io/ ±âÁØ ÇØ´ç µî¼ö ÇÃ·¹ÀÌ¾îÀÇ Å³Å¸ÀÓ, ÁÖ¿ä Äð±â¿Í »ýÁ¸±â ½Ã°£À» MRT ¸Þ¸ð·Î ÃßÃâ
-5. ÇØ´ç ¸Þ¸ð¸¦ °³ÀÎ MRT ¸Þ¸ð·Î °¡Á®¿Í¼­ »ç¿ë
+## **ì‚¬ìš© ë°©ë²•**
+1. https://www.curseforge.com/wow/addons/method-raid-tools ì´ë™ í›„ MRT ì• ë“œì˜¨ ì„¤ì¹˜
+2. https://github.com/dkdkfjgh/WCL2MRTNote/releases/tag/Release ì´ë™ í›„ ë³¸ í”„ë¡œê·¸ëž¨ ì„¤ì¹˜
+3. í”„ë¡œê·¸ëž¨ ì‹¤í–‰ í›„ ì§ì—…/ì „ë¬¸í™”, ë³´ìŠ¤, ì •ë ¬ë°©ì‹(DPS,HPS), ë“±ìˆ˜ ìž…ë ¥ í›„ ë¡œê·¸ ì¶”ì¶œ ë²„íŠ¼ ì„ íƒ
+4. https://lorrgs.io/ ê¸°ì¤€ í•´ë‹¹ ë“±ìˆ˜ í”Œë ˆì´ì–´ì˜ í‚¬íƒ€ìž„, ì£¼ìš” ì¿¨ê¸°ì™€ ìƒì¡´ê¸° ì‹œê°„ì„ MRT ë©”ëª¨ë¡œ ì¶”ì¶œ
+5. í•´ë‹¹ ë©”ëª¨ë¥¼ ê°œì¸ MRT ë©”ëª¨ë¡œ ê°€ì ¸ì™€ì„œ ì‚¬ìš©
 
-## **ÁÖÀÇ »çÇ×**
-1. º» ÇÁ·Î±×·¥ ³» Á¤º¸ÀÇ ÃâÃ³´Â https://lorrgs.io/ ¿Í https://raid.subcreation.net/ »çÀÌÆ®ÀÔ´Ï´Ù
-2. ¸¶·Â ÁÖÀÔ / ÆäÀÌ ¼öÈ£ÀÚ µîÀÇ ¿ÜºÎ ¹öÇÁ¿¡ ÁÖÀÇÇÏ½Ê½Ã¿À!
-3. ÇØ´ç ¸Þ¸ð¸¦ ¸Í¸ñÀûÀ¸·Î ¹Ï°í »ç¿ëÇÏÁö ¸¶½Ã°í, Âü°í¸¸ ÇÏ¼¼¿ä!
-4. ÇÑ Äð±âÀÇ »çÀÌÅ¬Àº 13ÃÊ °£°ÝÀ¸·Î °è»êµË´Ï´Ù! (const int OneCycleMS = 13000)
-5. º¸½º ½ºÅ³°ú ¹­´Â°ÍÀ» ¼±ÅÃÇÒ °æ¿ì, ÁÖ¿ä ½ºÅ³ »ç¿ë½Ã 4ÃÊ ³»¿ÜÀÇ º¸½º ½ÃÀü ÁÖ¿ä ½ºÅ³°ú ¹­¾î¼­ º¸¿©ÁÝ´Ï´Ù. Èú·¯ °ø»ý±â °è»ê½Ã ÁÁ½À´Ï´Ù.(const int BossCycleMS = 4000)
-6. (ÁÖÀÇ) Lorrgs »çÀÌÆ®ÀÇ ÇÑ°è·Î º¸½º ½ºÅ³ Á¤º¸´Â 1µî ·Î±×ÀÇ ±âÁØÀ¸·Î Á¦°øµË´Ï´Ù! 1µî ·Î±×°¡ ¾Æ´Ñ ´Ù¸¥ ·Î±×¸¦ ¼±ÅÃÇÒ ½Ã º¸½º ½ºÅ³ ½ÃÀü½Ã°£°ú ¿ÀÂ÷°¡ ÀÖÀ» ¼ö ÀÖ½À´Ï´Ù!
-7. ¹ö±× Á¦º¸ ¹× °ÇÀÇ»çÇ×Àº ¾Õ²ÞÄ¡¹«¸­-¾ÆÁî»þ¶ó ¼­¹ö·Î ÀÎ °ÔÀÓ ³» ¿ìÆí ºÎÅ¹µå¸³´Ï´Ù!
+## **ì£¼ì˜ ì‚¬í•­**
+1. ë³¸ í”„ë¡œê·¸ëž¨ ë‚´ ì •ë³´ì˜ ì¶œì²˜ëŠ” https://lorrgs.io/ ì™€ https://raid.subcreation.net/ ì‚¬ì´íŠ¸ìž…ë‹ˆë‹¤
+2. ë§ˆë ¥ ì£¼ìž… / íŽ˜ì´ ìˆ˜í˜¸ìž ë“±ì˜ ì™¸ë¶€ ë²„í”„ì— ì£¼ì˜í•˜ì‹­ì‹œì˜¤!
+3. í•´ë‹¹ ë©”ëª¨ë¥¼ ë§¹ëª©ì ìœ¼ë¡œ ë¯¿ê³  ì‚¬ìš©í•˜ì§€ ë§ˆì‹œê³ , ì°¸ê³ ë§Œ í•˜ì„¸ìš”!
+4. í•œ ì¿¨ê¸°ì˜ ì‚¬ì´í´ì€ 13ì´ˆ ê°„ê²©ìœ¼ë¡œ ê³„ì‚°ë©ë‹ˆë‹¤! (const int OneCycleMS = 13000)
+5. ë³´ìŠ¤ ìŠ¤í‚¬ê³¼ ë¬¶ëŠ”ê²ƒì„ ì„ íƒí•  ê²½ìš°, ì£¼ìš” ìŠ¤í‚¬ ì‚¬ìš©ì‹œ 4ì´ˆ ë‚´ì™¸ì˜ ë³´ìŠ¤ ì‹œì „ ì£¼ìš” ìŠ¤í‚¬ê³¼ ë¬¶ì–´ì„œ ë³´ì—¬ì¤ë‹ˆë‹¤. ížëŸ¬ ê³µìƒê¸° ê³„ì‚°ì‹œ ì¢‹ìŠµë‹ˆë‹¤.(const int BossCycleMS = 4000)
+6. (ì£¼ì˜) Lorrgs ì‚¬ì´íŠ¸ì˜ í•œê³„ë¡œ ë³´ìŠ¤ ìŠ¤í‚¬ ì •ë³´ëŠ” 1ë“± ë¡œê·¸ì˜ ê¸°ì¤€ìœ¼ë¡œ ì œê³µë©ë‹ˆë‹¤! 1ë“± ë¡œê·¸ê°€ ì•„ë‹Œ ë‹¤ë¥¸ ë¡œê·¸ë¥¼ ì„ íƒí•  ì‹œ ë³´ìŠ¤ ìŠ¤í‚¬ ì‹œì „ì‹œê°„ê³¼ ì˜¤ì°¨ê°€ ìžˆì„ ìˆ˜ ìžˆìŠµë‹ˆë‹¤!
+7. ë²„ê·¸ ì œë³´ ë° ê±´ì˜ì‚¬í•­ì€ ë‹¬ë¹›í”„ë¦¬ì¦˜ì˜¤ë„ˆ-ì•„ì¦ˆìƒ¤ë¼ ì„œë²„ë¡œ ì¸ ê²Œìž„ ë‚´ ìš°íŽ¸ ë¶€íƒë“œë¦½ë‹ˆë‹¤!
