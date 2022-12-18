@@ -97,49 +97,25 @@ namespace WCL2MRTNoteGUI
                 List<Cast> Casts = J_Player.casts;
                 List<Cast> BCasts = J_Boss.casts;
 
-                int PI = 0, KE = 0, KS = 0, FG = 0, BF = 0, FM = 0;
+                int PI = 0, IV = 0;
                 int buff = 0;
                 foreach(Cast cast in Casts)
                 {
-                    if(cast.id == 338525)//동족강화
-                    {
-                        KE++;
-                        buff++;
-                    }
-                    else if(cast.id == 338525)//야생의 영혼
-                    {
-                        KS++;
-                        buff++;
-                    }
-                    else if (cast.id == 10060)//마력 주입
+                    if (cast.id == 10060)//마력 주입
                     {
                         PI++;
                         buff++;
                     }
-                    else if (cast.id == 327661)//페이 수호자
+                    else if (cast.id == 29166)//정신 자극
                     {
-                        FG++;
-                        buff++;
-                    }
-                    else if (cast.id == 327710)//페이 수호자
-                    {
-                        BF++;
-                        buff++;
-                    }
-                    else if (cast.id == 327710)//마법 집중점
-                    {
-                        FM++;
+                        IV++;
                         buff++;
                     }
                 }
 
                 textBox2.Text += String.Format("\r\n===버프 목록(셀프 버프 포함)===\r\n");
-                textBox2.Text += String.Format("동족 강화 : {0}회\r\n", KE);
-                textBox2.Text += String.Format("야생 영혼 : {0}회\r\n", KS);
                 textBox2.Text += String.Format("마력 주입 : {0}회\r\n", PI);
-                textBox2.Text += String.Format("페이수호자 : {0}회\r\n", FG);
-                textBox2.Text += String.Format("자비의 페어리 : {0}회\r\n", BF);
-                textBox2.Text += String.Format("마법 집중점 : {0}회\r\n",FM);
+                textBox2.Text += String.Format("정신 자극 : {0}회\r\n", IV);
                 textBox2.Text += String.Format("\r\n\r\n총 버프: {0}회\r\n", buff);
                 textBox2.Text += String.Format("=========================\r\n");
 
@@ -243,36 +219,8 @@ namespace WCL2MRTNoteGUI
                 Class = Class.Replace("deathknight", "death-knight");
             }
 
-
-            if (listBox2.SelectedIndex < 10) //나스리아 성채
-            {
-                Url += Class + "-" + Boss;
-            }
-            else if (listBox2.SelectedIndex < 20)
-            {
-                    
-                if (Boss.Contains("tarragrue"))
-                {
-                    Boss = "tarragrue";
-                }
-                else if (Boss.Contains("eye"))
-                {
-                    Boss = "eye-of-the-jailer";
-                }
-                else if (Boss.Contains("fatescribe"))
-                {
-                    Boss = "fatescribe-roh-kalo";
-                }
-                Url += "sanctum-" + Class + "-" + Boss;
-            }
-            else
-            {
-                if (Boss.Contains("zovaal"))
-                {
-                    Boss = "the-jailer";
-                }
-                Url += "sepulcher-" + Class + "-" + Boss;
-            }
+            Url += Class;
+            
             if(listBox4.SelectedItem.ToString() == "heroic")
             {
                 Url += "-heroic";
