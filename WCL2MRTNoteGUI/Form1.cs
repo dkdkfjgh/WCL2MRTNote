@@ -49,7 +49,7 @@ namespace WCL2MRTNoteGUI
                     MessageBox.Show("등수는 1~100 사이여야 합니다", "오류");
                     return;
                 }
-                Url = String.Format("https://api.lorrgs.io/api/spec_ranking/{0}/{1}?difficulty={2}&metric={3}&limit={4}", Spec, Boss, Difficulty, Order, Nth);
+                Url = String.Format("https://api2.lorrgs.io/api/spec_ranking/{0}/{1}?difficulty={2}&metric={3}", Spec, Boss, Difficulty, Order);
                 string JsonStr = string.Empty;
 
 
@@ -59,25 +59,31 @@ namespace WCL2MRTNoteGUI
 
                 Root rootObj = JsonSerializer.Deserialize<Root>(JsonStr);//역직렬화 수행
 
-                if (rootObj.fights.Count == 0)
+
+
+                if (rootObj.reports[Nth-1].fights.Count == 0)
                 {
                     MessageBox.Show("전투 로그를 찾을 수 없습니다!", "오류");
                     return;
                 }
 
+                var J_Reports = rootObj.reports[Nth - 1];
+                var J_Fights = rootObj.reports[Nth - 1].fights[0];
+                var J_Player = rootObj.reports[Nth - 1].fights[0].players[0];
+                var J_Boss = rootObj.reports[Nth - 1].fights[0].boss;
+
                 textBox2.Text += "Lorrgs 기반 WCL 로그 MRT 메모 추출기\r\n";
                 textBox2.Text += "Lorrgs 출처 : " + Url + "\r\n";
-                textBox2.Text += "WCL 리포트 주소 : " + "https://warcraftlogs.com/reports/" + rootObj.fights[Nth - 1].report_id + "\r\n";
-                textBox2.Text += "유저 : " + rootObj.fights[Nth-1].players[0].name + "\r\n";
-                textBox2.Text += "로그ID : " + rootObj.fights[Nth - 1].report_id + "\r\n";
+                textBox2.Text += "WCL 리포트 주소 : " + "https://warcraftlogs.com/reports/" + J_Reports.report_id + "\r\n";
+                textBox2.Text += "유저 : " + J_Player.name + "\r\n";
+                textBox2.Text += "로그ID : " + J_Reports.report_id + "\r\n";
 
-                textBox2.Text += string.Format("킬 타임 : " + Handler.ConvertMilliseconds(rootObj.fights[Nth - 1].duration) + "\r\n");
+                textBox2.Text += string.Format("킬 타임 : " + Handler.ConvertMilliseconds(J_Fights.duration) + "\r\n");
 
                 textBox1.Text += "보스 : " + Boss + "\r\n";
-                textBox1.Text += string.Format("킬 타임 : " + Handler.ConvertMilliseconds(rootObj.fights[Nth - 1].duration) + "\r\n");
 
-                List<Cast> Casts = rootObj.fights[Nth - 1].players[0].casts;
-                List<Cast> BCasts = rootObj.fights[0].boss.casts;
+                List<Cast> Casts = J_Player.casts;
+                List<Cast> BCasts = J_Boss.casts;
 
                 int PI = 0, KE = 0, KS = 0, FG = 0, BF = 0, FM = 0;
                 int buff = 0;
@@ -202,7 +208,7 @@ namespace WCL2MRTNoteGUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string Url = "https://raid.subcreation.net/";
+            string Url = "https://raid.subcreation.net/vault-";
             string Class = "";
             string Boss = "";
             if(listBox2.SelectedIndex == -1 || listBox1.SelectedIndex == -1 || listBox4.SelectedIndex == -1)

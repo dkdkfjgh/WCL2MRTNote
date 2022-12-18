@@ -96,7 +96,9 @@
             "mage-frost",
             "monk-brewmaster",
             "monk-mistweaver",
-            "monk-windwalker"});
+            "monk-windwalker",
+            "evoker-devastation",
+            "evoker-preservation"});
             this.listBox1.Location = new System.Drawing.Point(11, 22);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(164, 94);
@@ -107,37 +109,14 @@
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 15;
             this.listBox2.Items.AddRange(new object[] {
-            "shriekwing",
-            "huntsman-altimor",
-            "hungering-destroyer",
-            "sun-kings-salvation",
-            "artificer-xymox-cn",
-            "lady-inerva-darkvein",
-            "the-council-of-blood",
-            "sludgefist",
-            "stone-legion-generals",
-            "sire-denathrius",
-            "the-tarragrue",
-            "the-eye-of-the-jailer",
-            "the-nine",
-            "remnant-of-nerzhul",
-            "soulrender-dormazain",
-            "painsmith-raznal",
-            "guardian-of-the-first-ones",
-            "fatescribe-rohkalo",
-            "kelthuzad",
-            "sylvanas-windrunner",
-            "vigilant-guardian",
-            "skolex-the-insatiable-ravener",
-            "artificer-xymox",
-            "dausegne-the-fallen-oracle",
-            "prototype-pantheon",
-            "lihuvim-principal-architect",
-            "halondrus-the-reclaimer",
-            "anduin-wrynn",
-            "lords-of-dread",
-            "rygelon",
-            "the-jailer-zovaal"});
+            "eranog",
+            "terros",
+            "the-primal-council",
+            "ennarth-the-cold-breath",
+            "dathea-ascended",
+            "kurog-grimtotem",
+            "broodkeeper-diurna",
+            "raszageth-the-stormeater"});
             this.listBox2.Location = new System.Drawing.Point(6, 22);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(136, 94);
@@ -276,7 +255,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(109, 62);
             this.button2.TabIndex = 10;
-            this.button2.Text = "레이드 특성 확인";
+            this.button2.Text = "레이드 통계 확인";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 

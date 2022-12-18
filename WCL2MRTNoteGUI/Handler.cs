@@ -61,52 +61,52 @@ namespace WCL2MRTNote
         }
     }
 
+    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
     public class Boss
     {
-        public string name { get; set; }
+        public int source_id { get; set; }
         public List<Cast> casts { get; set; }
+        public string boss_slug { get; set; }
     }
 
     public class Cast
     {
-        public int ts { get; set; }
         public int id { get; set; }
-        public int d { get; set; }
+        public int ts { get; set; }
+        public int? d { get; set; }
     }
 
     public class Fight
     {
-        public string report_id { get; set; }
         public int fight_id { get; set; }
-        public double percent { get; set; }
-        public bool kill { get; set; }
+        public DateTime start_time { get; set; }
         public int duration { get; set; }
-        public double time { get; set; }
-        public Boss boss { get; set; }
         public List<Player> players { get; set; }
+        public Boss boss { get; set; }
     }
 
     public class Player
     {
-        public string name { get; set; }
         public int source_id { get; set; }
-        public string @class { get; set; }
-        public string spec { get; set; }
-        public string role { get; set; }
-        public int total { get; set; }
-        public string covenant { get; set; }
         public List<Cast> casts { get; set; }
-        public List<object> deaths { get; set; }
-        public List<object> resurrects { get; set; }
+        public string name { get; set; }
+        public string spec_slug { get; set; }
+        public double total { get; set; }
+    }
+
+    public class Report
+    {
+        public string report_id { get; set; }
+        public DateTime start_time { get; set; }
+        public List<Fight> fights { get; set; }
     }
 
     public class Root
     {
-        public List<Fight> fights { get; set; }
-        public int updated { get; set; }
+        public string spec_slug { get; set; }
+        public string boss_slug { get; set; }
         public string difficulty { get; set; }
         public string metric { get; set; }
+        public List<Report> reports { get; set; }
     }
-
-
 }
