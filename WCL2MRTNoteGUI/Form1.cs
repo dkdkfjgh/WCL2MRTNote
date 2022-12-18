@@ -244,7 +244,7 @@ namespace WCL2MRTNoteGUI
                 Class = Class.Replace("deathknight", "death-knight");
             }
 
-            Url += Class;
+            Url += Class +"-" +Boss;
             
             if(listBox4.SelectedItem.ToString() == "heroic")
             {
