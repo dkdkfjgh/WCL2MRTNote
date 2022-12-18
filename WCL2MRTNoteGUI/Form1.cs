@@ -98,6 +98,7 @@ namespace WCL2MRTNoteGUI
                 List<Cast> BCasts = J_Boss.casts;
 
                 int PI = 0, IV = 0;
+                int BS = 0, BA = 0, BS2 = 0, BW = 0;
                 int buff = 0;
                 foreach(Cast cast in Casts)
                 {
@@ -111,11 +112,35 @@ namespace WCL2MRTNoteGUI
                         IV++;
                         buff++;
                     }
+                    else if (cast.id == 388007 || cast.id == 388009)//여름의 축복
+                    {
+                        BS++;
+                        buff++;
+                    }
+                    else if (cast.id == 388010||cast.id == 328622)//가을의 축복
+                    {
+                        BA++;
+                        buff++;
+                    }
+                    else if (cast.id == 388011|| cast.id == 388012)//겨울의 축복
+                    {
+                        BW++;
+                        buff++;
+                    }
+                    else if (cast.id == 388012|| cast.id == 388013)//봄의 축복
+                    {
+                        BS2++;
+                        buff++;
+                    }
                 }
 
                 textBox2.Text += String.Format("\r\n===버프 목록(셀프 버프 포함)===\r\n");
                 textBox2.Text += String.Format("마력 주입 : {0}회\r\n", PI);
                 textBox2.Text += String.Format("정신 자극 : {0}회\r\n", IV);
+                textBox2.Text += String.Format("여름의 축복 : {0}회\r\n", BS);
+                textBox2.Text += String.Format("가을의 축복 : {0}회\r\n", BA);
+                textBox2.Text += String.Format("겨울의 축복 : {0}회\r\n", BW);
+                textBox2.Text += String.Format("봄의 축복 : {0}회\r\n", BS2);
                 textBox2.Text += String.Format("\r\n\r\n총 버프: {0}회\r\n", buff);
                 textBox2.Text += String.Format("=========================\r\n");
 
