@@ -12,7 +12,7 @@ namespace WCL2MRTNoteGUI
         public Form1()
         {
             InitializeComponent();
-            const string Ver = "2.0.0";
+            const string Ver = "2.0.1";
             this.Text += "-v" + Ver;
         }
 
@@ -71,6 +71,18 @@ namespace WCL2MRTNoteGUI
                 var J_Fights = rootObj.reports[Nth - 1].fights[0];
                 var J_Player = rootObj.reports[Nth - 1].fights[0].players[0];
                 var J_Boss = rootObj.reports[Nth - 1].fights[0].boss;
+
+                if (J_Boss == null)
+                {
+                    for(int i = Nth; i > 0; i--)
+                    {
+                        if (rootObj.reports[i - 1].fights[0].boss != null)
+                        {
+                            J_Boss = rootObj.reports[i - 1].fights[0].boss;
+                            break;
+                        }
+                    }
+                }
 
                 textBox2.Text += "Lorrgs 기반 WCL 로그 MRT 메모 추출기\r\n";
                 textBox2.Text += "Lorrgs 출처 : " + Url + "\r\n";
