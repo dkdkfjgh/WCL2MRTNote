@@ -12,7 +12,7 @@ namespace WCL2MRTNoteGUI
         public Form1()
         {
             InitializeComponent();
-            const string Ver = "1.2.1";
+            const string Ver = "2.0.0";
             this.Text += "-v" + Ver;
         }
 
