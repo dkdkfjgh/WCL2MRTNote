@@ -84,17 +84,25 @@ namespace WCL2MRTNoteGUI
                     }
                 }
 
+                string WCLUrl = "https://warcraftlogs.com/reports/" + J_Reports.report_id + "#fight=" + J_Reports.fights[0].fight_id + "&source=" + J_Player.source_id + "\r\n";
+
+
                 textBox2.Text += "Lorrgs 기반 WCL 로그 MRT 메모 추출기\r\n";
                 textBox2.Text += "Lorrgs 출처 : " + Url + "\r\n";
-                textBox2.Text += "WCL 리포트 주소 : " + "https://warcraftlogs.com/reports/" + J_Reports.report_id + "\r\n";
+                textBox2.Text += "WCL 리포트 주소 : " + WCLUrl;
                 textBox2.Text += "유저 : " + J_Player.name + "\r\n";
                 textBox2.Text += "로그ID : " + J_Reports.report_id + "\r\n";
 
                 textBox2.Text += string.Format("킬 타임 : " + Handler.ConvertMilliseconds(J_Fights.duration) + "\r\n");
 
-                textBox1.Text += "보스 : " + Boss + "\r\n";
+                textBox1.Text += "보스 : " + Boss + " "+ listBox4.SelectedItem +"\r\n";
 
                 List<Cast> Casts = J_Player.casts;
+
+                //Delete all casts in Casts list that are not in Skills.CDs
+                Casts.RemoveAll(x => !Skills.CDs.Contains(x.id));
+                
+
                 List<Cast> BCasts = J_Boss.casts;
 
                 int PI = 0, IV = 0;
@@ -144,44 +152,25 @@ namespace WCL2MRTNoteGUI
                 textBox2.Text += String.Format("\r\n\r\n총 버프: {0}회\r\n", buff);
                 textBox2.Text += String.Format("=========================\r\n");
 
-                const int OneCycleMS = 13000;
-                const int BossCycleMS = 4000;
+                const int OneCycleMS = 20*1000;
+                const int BossCycleMS = 6000;
                 int timestamp;
 
-                if (Casts[0].id != 2825)
+                int index = Casts[0].id == 2825 ? 1 : 0;
+                timestamp = Casts[index].ts + OneCycleMS;
+                textBox1.Text += string.Format("{{time:{0}}}-", Handler.ConvertMilliseconds(Casts[index].ts));
+                if (checkBox1.Checked)
                 {
-                    timestamp = Casts[0].ts + OneCycleMS;
-                    textBox1.Text += string.Format("{{time:{0}}}-", Handler.ConvertMilliseconds(Casts[0].ts));
-                    if(checkBox1.Checked == true)
+                    foreach (var C2 in BCasts)
                     {
-                        foreach (var C2 in BCasts)
+                        if (Math.Abs(C2.ts - Casts[index].ts) < BossCycleMS)
                         {
-                            if (Math.Abs(C2.ts - Casts[0].ts) < BossCycleMS)
-                            {
-                                textBox1.Text += string.Format("{0}{{spell:{1}}}-", Handler.SpellID2Name(C2.id), C2.id) + " ";
-                                break;
-                            }
-                        }
-
-                    }
-
-                }
-                else
-                {
-                    timestamp = Casts[1].ts + OneCycleMS;
-                    textBox1.Text += string.Format("{{time:{0}}}-", Handler.ConvertMilliseconds(Casts[1].ts));
-                    if (checkBox1.Checked == true)
-                    {
-                        foreach (var C2 in BCasts)
-                        {
-                            if (Math.Abs(C2.ts - Casts[1].ts) < BossCycleMS)
-                            {
-                                textBox1.Text += string.Format("{0}{{spell:{1}}}-", Handler.SpellID2Name(C2.id), C2.id) + " ";
-                                break;
-                            }
+                            textBox1.Text += string.Format("{0}{{spell:{1}}}-", Handler.SpellID2Name(C2.id), C2.id) + " ";
+                            break;
                         }
                     }
                 }
+
                 foreach (var C in Casts)
                 {
                     if (C.id == 2825)
@@ -196,7 +185,7 @@ namespace WCL2MRTNoteGUI
                     {
                         textBox1.Text += "\r\n";
                         textBox1.Text += string.Format("{{time:{0}}}-", Handler.ConvertMilliseconds(C.ts));
-                        if (checkBox1.Checked == true)
+                        if (checkBox1.Checked)
                         {
                             foreach (var C2 in BCasts)
                             {
@@ -230,6 +219,11 @@ namespace WCL2MRTNoteGUI
             }
             Class = ReverseWords(listBox1.SelectedItem.ToString());
             Boss = listBox2.SelectedItem.ToString();
+
+            if (Boss.Contains("stormeater"))
+            {
+                Boss = Boss.Replace("stormeater", "storm-eater");
+            }
 
             if (Class.Contains("beastmastery"))
             {

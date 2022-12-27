@@ -112,7 +112,7 @@
             "eranog",
             "terros",
             "the-primal-council",
-            "ennarth-the-cold-breath",
+            "sennarth-the-cold-breath",
             "dathea-ascended",
             "kurog-grimtotem",
             "broodkeeper-diurna",
