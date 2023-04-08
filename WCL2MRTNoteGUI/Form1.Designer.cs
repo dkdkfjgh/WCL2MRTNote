@@ -45,6 +45,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -101,7 +102,7 @@
             "evoker-preservation"});
             this.listBox1.Location = new System.Drawing.Point(11, 22);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(164, 94);
+            this.listBox1.Size = new System.Drawing.Size(164, 109);
             this.listBox1.TabIndex = 0;
             // 
             // listBox2
@@ -119,7 +120,7 @@
             "raszageth-the-stormeater"});
             this.listBox2.Location = new System.Drawing.Point(6, 22);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(136, 94);
+            this.listBox2.Size = new System.Drawing.Size(136, 109);
             this.listBox2.TabIndex = 1;
             // 
             // listBox3
@@ -131,15 +132,15 @@
             "hps"});
             this.listBox3.Location = new System.Drawing.Point(6, 22);
             this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(100, 94);
+            this.listBox3.Size = new System.Drawing.Size(100, 109);
             this.listBox3.TabIndex = 2;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.listBox1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(18, 63);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(188, 125);
+            this.groupBox1.Size = new System.Drawing.Size(188, 135);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "전문화 선택";
@@ -147,9 +148,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.listBox2);
-            this.groupBox2.Location = new System.Drawing.Point(206, 12);
+            this.groupBox2.Location = new System.Drawing.Point(212, 63);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(155, 125);
+            this.groupBox2.Size = new System.Drawing.Size(155, 135);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "보스 선택";
@@ -157,18 +158,18 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.listBox3);
-            this.groupBox3.Location = new System.Drawing.Point(367, 12);
+            this.groupBox3.Location = new System.Drawing.Point(373, 63);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(112, 125);
+            this.groupBox3.Size = new System.Drawing.Size(112, 135);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "딜/힐로그 선택";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(771, 12);
+            this.button1.Location = new System.Drawing.Point(777, 63);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 57);
+            this.button1.Size = new System.Drawing.Size(109, 73);
             this.button1.TabIndex = 6;
             this.button1.Text = "로그 추출";
             this.button1.UseVisualStyleBackColor = true;
@@ -177,7 +178,7 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.textBox1);
-            this.groupBox4.Location = new System.Drawing.Point(456, 143);
+            this.groupBox4.Location = new System.Drawing.Point(456, 204);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(424, 403);
             this.groupBox4.TabIndex = 7;
@@ -195,9 +196,9 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.listBox4);
-            this.groupBox5.Location = new System.Drawing.Point(485, 12);
+            this.groupBox5.Location = new System.Drawing.Point(491, 63);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(112, 125);
+            this.groupBox5.Size = new System.Drawing.Size(112, 135);
             this.groupBox5.TabIndex = 6;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "난이도 선택";
@@ -211,13 +212,13 @@
             "mythic"});
             this.listBox4.Location = new System.Drawing.Point(6, 22);
             this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(100, 94);
+            this.listBox4.Size = new System.Drawing.Size(100, 109);
             this.listBox4.TabIndex = 2;
             // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.textBox2);
-            this.groupBox6.Location = new System.Drawing.Point(18, 143);
+            this.groupBox6.Location = new System.Drawing.Point(18, 204);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(432, 403);
             this.groupBox6.TabIndex = 8;
@@ -235,7 +236,7 @@
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.textBox3);
-            this.groupBox7.Location = new System.Drawing.Point(603, 12);
+            this.groupBox7.Location = new System.Drawing.Point(609, 63);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(162, 57);
             this.groupBox7.TabIndex = 9;
@@ -248,12 +249,13 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(150, 23);
             this.textBox3.TabIndex = 0;
+            this.textBox3.Text = "1";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(771, 75);
+            this.button2.Location = new System.Drawing.Point(777, 142);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(109, 62);
+            this.button2.Size = new System.Drawing.Size(109, 56);
             this.button2.TabIndex = 10;
             this.button2.Text = "레이드 통계 확인";
             this.button2.UseVisualStyleBackColor = true;
@@ -261,29 +263,40 @@
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.checkBox2);
             this.groupBox8.Controls.Add(this.checkBox1);
-            this.groupBox8.Location = new System.Drawing.Point(603, 75);
+            this.groupBox8.Location = new System.Drawing.Point(609, 126);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(162, 62);
+            this.groupBox8.Size = new System.Drawing.Size(162, 72);
             this.groupBox8.TabIndex = 11;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "옵션";
             // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(6, 47);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(142, 19);
+            this.checkBox2.TabIndex = 1;
+            this.checkBox2.Text = "주요 쿨기만 확인하기";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 23);
+            this.checkBox1.Location = new System.Drawing.Point(6, 22);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(118, 19);
+            this.checkBox1.Size = new System.Drawing.Size(142, 19);
             this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "보스 스킬과 묶기";
+            this.checkBox1.Text = "보스 스킬에 묶어보기";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(892, 558);
+            this.ClientSize = new System.Drawing.Size(892, 620);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox7);
@@ -332,5 +345,6 @@
         private Button button2;
         private GroupBox groupBox8;
         private CheckBox checkBox1;
+        private CheckBox checkBox2;
     }
 }

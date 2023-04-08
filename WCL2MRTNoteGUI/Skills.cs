@@ -2,130 +2,45 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace WCL2MRTNoteGUI
 {
     public static class Skills
     {
-        public static int[] CDs =
+        public static int[] CDs = new int[0];
+        public static void loadCDs()
         {
-            
-            370524, //얼어붙은 집중의 물약(스킬)
-            371033, //얼어붙은 집중의 물약(스킬)
+            CDs = LoadNumbersFromTextFile("CDs.txt");
+        }
+        public static int[] LoadNumbersFromTextFile(string filePath)
+        {
+            // Read the entire text file into a string
+            string fileContent = File.ReadAllText(filePath);
 
-            2825, //블러드
+            // Use a regular expression to match lines that contain a number followed by a comma and space
+            string pattern = @"\d+,";
+            Regex regex = new Regex(pattern);
 
-            26297, //트롤 광폭화
-            20572, //오크 피의 격노
-            
-            /*********사제*********/
-            375901, //정신 조작
-            10060, //마력 주입
-            15286, //흡혈의 손길
-            /*********사제 - 수양 *********/
-            62618, //신의 권능: 방벽
-            47536, //환희
-            246287, //사도
-            128868, //빛의 분노
-            33206, //고통 억제
-            /*********사제 - 신성 *********/
-            265202, //빛의 권능: 구원
-            64843, //천상의 찬가
-            64901, //희망의 상징
-            200183, //절정
-            47788, //수호 영혼
-            /*********사제 - 암흑 *********/
-            228260, //공허 방출
-            391109, //어둠의 승천
-            200174, //환각의 마귀
+            // Find all the matches in the file content
+            MatchCollection matches = regex.Matches(fileContent);
 
-            /*********죽기*********/
-            47568, //룬 무기 강화
-            42650, //사자의 군대
-            49028, //춤추는 룬 무기
-            152279, //신드라고사의 숨결
-            
-            /*********악사*********/
-            187827, //탈태(탱)
-            200166, //탈태(딜)
-            
-            /*********드루이드*********/
-            194223, //천체의 정렬
-            383410, //천체의 정렬2
-            390414, //화신
-            102560, //영혼 소집
-            323764, //영혼 소집
-            391528, //영혼 소집
-            106951, //광폭화
-            33891, //생명의 나무
-            197721, //번성
-            102342, //무쇠 껍질
-            106898, //쇄포
-            29166, //정신 자극
-            75940, //평온
-            740, //평온
-            
-            /*********마법사*********/
-            365350, //신비의 마법 강화
-            12472, //얼음 핏줄
-            190319, //발화
+            // Create a list to store the numbers
+            List<int> numbers = new List<int>();
 
-            /*********수도사*********/
-            123904, //쉬엔
-            137639, //폭대불
-            115310, //재활
-            325197, //츠지
-            322118, //위론
-            116849, //기의 고치
-            
-            /*********도적*********/
-            360194, //원한
-            13750, //아드레날린 촉진
-            121471, //어둠의 칼날
+            // Loop through all the matches
+            foreach (Match match in matches)
+            {
+                // Convert the number from a string to an integer
+                int number = int.Parse(match.Value.Replace(",",String.Empty));
 
-            /*********주술사*********/
-            198067, //불의 정령
-            51533, //야수 정령
-            114050, //승천(정술)
-            114051, //승천(고술)
-            114052, //승천(복술)
-            192249, //폭풍의 정령
-            343182, //마해토
-            98008, //정고토
-            127945, //치해토
-            
-            /*********흑마법사*********/
-            205180, //암흑 시선 소환
-            265187, //암흑 폭군 소환
-            1122, //지옥불정령
-            113860, //악마의 영혼 불행
-            267217, //황천의 차원문
-            
-            /*********전사*********/
-            122507, //재집결의 함성
-            1719, //무모한 희생
-            107574, //투신
-            167105, //거인의 강타
+                // Add the number to the list
+                numbers.Add(number);
+            }
 
-            /*********성기사*********/
-            31884, //응징의 격노
-            216331, //응징의 성기사
-            231895, //성전
-            389539, //파수꾼
-            317929, //오라 숙련
+            return numbers.ToArray();
+        }
 
-            /*********사냥꾼*********/
-            19574, //야수의 격노
-            288613, //정조준
-            266779, //협공
-            193530, //야생의 상
-            
-            /*********기원사*********/
-            375087, //용의 분노
-            359816, //꿈의 비행
-            363534, //되돌리기
-            370984, //에메랄드 교감
-        };
     }
 }

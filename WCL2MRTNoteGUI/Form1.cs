@@ -7,16 +7,16 @@ using System.Diagnostics;
 
 namespace WCL2MRTNoteGUI
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MetroFramework.Forms.MetroForm
     {
+        const string Ver = "2.2.0";
         public Form1()
         {
             InitializeComponent();
-            const string Ver = "2.0.1";
+            
             this.Text += "-v" + Ver;
+            Skills.loadCDs();
         }
-
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -38,13 +38,13 @@ namespace WCL2MRTNoteGUI
                 Order = listBox3.SelectedItem.ToString();
                 Difficulty = listBox4.SelectedItem.ToString();
 
-                if(Int32.TryParse(textBox3.Text, out Nth) == false)
+                if (Int32.TryParse(textBox3.Text, out Nth) == false)
                 {
                     MessageBox.Show("잘못된 등수 입력", "오류");
                     return;
 
                 }
-                if(Nth <= 0 || Nth > 100)
+                if (Nth <= 0 || Nth > 100)
                 {
                     MessageBox.Show("등수는 1~100 사이여야 합니다", "오류");
                     return;
@@ -61,7 +61,7 @@ namespace WCL2MRTNoteGUI
 
 
 
-                if (rootObj.reports[Nth-1].fights.Count == 0)
+                if (rootObj.reports[Nth - 1].fights.Count == 0)
                 {
                     MessageBox.Show("전투 로그를 찾을 수 없습니다!", "오류");
                     return;
@@ -74,7 +74,7 @@ namespace WCL2MRTNoteGUI
 
                 if (J_Boss == null)
                 {
-                    for(int i = Nth; i > 0; i--)
+                    for (int i = Nth; i > 0; i--)
                     {
                         if (rootObj.reports[i - 1].fights[0].boss != null)
                         {
@@ -95,20 +95,20 @@ namespace WCL2MRTNoteGUI
 
                 textBox2.Text += string.Format("킬 타임 : " + Handler.ConvertMilliseconds(J_Fights.duration) + "\r\n");
 
-                textBox1.Text += "보스 : " + Boss + " "+ listBox4.SelectedItem +"\r\n";
-
                 List<Cast> Casts = J_Player.casts;
 
                 //Delete all casts in Casts list that are not in Skills.CDs
-                Casts.RemoveAll(x => !Skills.CDs.Contains(x.id));
-                
+                if (checkBox2.Checked)
+                {
+                    Casts.RemoveAll(x => !Skills.CDs.Contains(x.id));
+                }
 
                 List<Cast> BCasts = J_Boss.casts;
 
                 int PI = 0, IV = 0;
                 int BS = 0, BA = 0, BS2 = 0, BW = 0;
                 int buff = 0;
-                foreach(Cast cast in Casts)
+                foreach (Cast cast in Casts)
                 {
                     if (cast.id == 10060)//마력 주입
                     {
@@ -125,17 +125,17 @@ namespace WCL2MRTNoteGUI
                         BS++;
                         buff++;
                     }
-                    else if (cast.id == 388010||cast.id == 328622)//가을의 축복
+                    else if (cast.id == 388010 || cast.id == 328622)//가을의 축복
                     {
                         BA++;
                         buff++;
                     }
-                    else if (cast.id == 388011|| cast.id == 388012)//겨울의 축복
+                    else if (cast.id == 388011 || cast.id == 388012)//겨울의 축복
                     {
                         BW++;
                         buff++;
                     }
-                    else if (cast.id == 388012|| cast.id == 388013)//봄의 축복
+                    else if (cast.id == 388012 || cast.id == 388013)//봄의 축복
                     {
                         BS2++;
                         buff++;
@@ -149,10 +149,10 @@ namespace WCL2MRTNoteGUI
                 textBox2.Text += String.Format("가을의 축복 : {0}회\r\n", BA);
                 textBox2.Text += String.Format("겨울의 축복 : {0}회\r\n", BW);
                 textBox2.Text += String.Format("봄의 축복 : {0}회\r\n", BS2);
-                textBox2.Text += String.Format("\r\n\r\n총 버프: {0}회\r\n", buff);
+                textBox2.Text += String.Format("\r\n총 버프: {0}회\r\n", buff);
                 textBox2.Text += String.Format("=========================\r\n");
 
-                const int OneCycleMS = 20*1000;
+                const int OneCycleMS = 20 * 1000;
                 const int BossCycleMS = 6000;
                 int timestamp;
 
@@ -165,7 +165,7 @@ namespace WCL2MRTNoteGUI
                     {
                         if (Math.Abs(C2.ts - Casts[index].ts) < BossCycleMS)
                         {
-                            textBox1.Text += string.Format("{0}{{spell:{1}}}-", Handler.SpellID2Name(C2.id), C2.id) + " ";
+                            textBox1.Text += string.Format("{0} ", Handler.SpellID2Name(C2.id)) + " ";
                             break;
                         }
                     }
@@ -173,10 +173,6 @@ namespace WCL2MRTNoteGUI
 
                 foreach (var C in Casts)
                 {
-                    if (C.id == 2825)
-                    {
-                        continue;
-                    }
                     if (C.ts < timestamp)
                     {
                         textBox1.Text += string.Format("{{spell:{0}}}", C.id) + " ";
@@ -191,7 +187,7 @@ namespace WCL2MRTNoteGUI
                             {
                                 if (Math.Abs(C2.ts - C.ts) < BossCycleMS)
                                 {
-                                    textBox1.Text += string.Format("{0}{{spell:{1}}}-", Handler.SpellID2Name(C2.id), C2.id) + " ";
+                                    textBox1.Text += string.Format("{0} ", Handler.SpellID2Name(C2.id)) + " ";
                                     break;
                                 }
                             }
@@ -269,6 +265,11 @@ namespace WCL2MRTNoteGUI
             }
             result = result.Remove(result.Length - 1);
             return result;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -20,4 +20,8 @@
     <NoWarn>1701;1702;8618;8600</NoWarn>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MetroModernUI" Version="1.4.0" />
+  </ItemGroup>
+
 </Project>
