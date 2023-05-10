@@ -2,8 +2,8 @@
 
 상위권 유저들의 쿨기를 Method Raid Tools Note 로 출력하는 프로그램입니다
 
- - 개발 환경 : Visual Studio 2022 / .Net 6.0 개발 언어 : C#
- - 실행 오류시 https://dotnet.microsoft.com/en-us/download/dotnet/6.0 이동 후 .NET Runtime 6.0.X 설치
+ - 개발 환경 : Visual Studio 2022 / .Net Framework 4.8.1 개발 언어 : C#
+ - 실행 오류시 https://dotnet.microsoft.com/ko-kr/download/dotnet-framework/net481 이동 후 런타임 설치
 -  개발: 달빛프리즘오너-아즈샤라
 
 ## **사용 방법**
